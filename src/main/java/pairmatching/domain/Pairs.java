@@ -26,4 +26,12 @@ public class Pairs {
     public boolean hasSameInformation(PairsInformation information) {
         return information.equals(this.information);
     }
+
+    @Override
+    public String toString() {
+        return "Pairs{" +
+                "pairs=" + pairs +
+                ", information=" + information +
+                '}';
+    }
 }

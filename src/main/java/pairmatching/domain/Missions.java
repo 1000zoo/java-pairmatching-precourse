@@ -27,6 +27,6 @@ public class Missions {
         return missions.stream()
                 .filter(mission -> name.equals(mission.name()))
                 .findAny()
-                .orElseThrow(ErrorMessage.INVALID_MISSION.getMessage());
+                .orElseThrow(() -> new IllegalArgumentException(ErrorMessage.INVALID_MISSION.getMessage()));
     }
 }

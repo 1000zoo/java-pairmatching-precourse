@@ -25,4 +25,11 @@ public class Pair {
     private boolean contains(Crew crew) {
         return members.contains(crew);
     }
+
+    @Override
+    public String toString() {
+        return "Pair{" +
+                "members=" + members +
+                '}';
+    }
 }
