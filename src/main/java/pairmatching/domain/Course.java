@@ -1,6 +1,7 @@
 package pairmatching.domain;
 
 import java.util.Arrays;
+import pairmatching.constants.ErrorMessage;
 
 public enum Course {
     BACKEND("백엔드"), FRONTEND("프론트엔드");
@@ -19,6 +20,6 @@ public enum Course {
         return Arrays.stream(values())
                 .filter(course -> name.equals(course.name))
                 .findAny()
-                .orElseThrow();
+                .orElseThrow(() -> new IllegalArgumentException(ErrorMessage.INVALID_COURSE.getMessage()));
     }
 }

@@ -27,6 +27,10 @@ public class Pairs {
         return information.equals(this.information);
     }
 
+    public List<String> pairString() {
+        return pairs.stream().map(Pair::pairString).toList();
+    }
+
     @Override
     public String toString() {
         return "Pairs{" +

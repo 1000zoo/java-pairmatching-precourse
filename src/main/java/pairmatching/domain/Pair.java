@@ -10,6 +10,17 @@ public class Pair {
         this.members = members;
     }
 
+    public String pairString() {
+        StringBuilder sb = new StringBuilder();
+
+        for (Crew crew : members) {
+            sb.append(crew.name()).append(" : ");
+        }
+        sb.setLength(sb.length() - 3);
+
+        return sb.toString();
+    }
+
     public boolean hasSamePair(Pair pair) {
         int count = 0;
 

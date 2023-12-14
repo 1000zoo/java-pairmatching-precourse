@@ -10,6 +10,7 @@ import pairmatching.domain.Course;
 import pairmatching.domain.Crew;
 import pairmatching.domain.CrewMembers;
 import pairmatching.domain.Level;
+import pairmatching.domain.Mission;
 import pairmatching.domain.Pair;
 import pairmatching.domain.Pairs;
 import pairmatching.domain.PairsInformation;
@@ -23,6 +24,26 @@ public class PairMatching {
         Pairs pairs = matchingUntilSuccess(information, crewMembers);
         put(information.level(), pairs);
         return pairs;
+    }
+
+    public void clear() {
+        pairRepository.clear();
+    }
+
+    public Pairs findPairsByInformation(PairsInformation information) {
+        Level level = information.level();
+        Course course = information.course();
+        Mission mission = information.mission();
+
+        if (!pairRepository.containsKey(level)) {
+            throw new IllegalArgumentException(ErrorMessage.INVALID_PAIRS.getMessage());
+        }
+        for (Pairs pairs : pairRepository.get(level)) {
+            if (pairs.hasSameInformation(information)) {
+                return pairs;
+            }
+        }
+        throw new IllegalArgumentException(ErrorMessage.INVALID_PAIRS.getMessage());
     }
 
     private void put(Level level, Pairs pairs) {
@@ -103,6 +124,10 @@ public class PairMatching {
 
     public boolean hasSameInformationsPair(PairsInformation information) {
         Level level = information.level();
+
+        if (!pairRepository.containsKey(level)) {
+            return false;
+        }
 
         for (Pairs pairs : pairRepository.get(level)) {
             if (pairs.hasSameInformation(information)) {
