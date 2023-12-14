@@ -1,0 +1,20 @@
+package pairmatching.fileparser;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class ParserTest {
+
+    public static void main(String[] args) {
+        String path = "src/main/resources/backend-crew.md";
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(path))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                System.out.println(line);
+            }
+        } catch (IOException ignored) {
+        }
+    }
+}
