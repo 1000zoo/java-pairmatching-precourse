@@ -9,6 +9,8 @@ import pairmatching.TestUtils;
 
 class PairsTest {
 
+    private final PairsInformation information = new PairsInformation(Course.BACKEND, Level.LEVEL1, new Mission(""));
+
 
     @Test
     @DisplayName("중복되는 페어를 가졌는 지 확인하는 메서드 테스트")
@@ -21,8 +23,8 @@ class PairsTest {
         Pair pair4 = TestUtils.getPair(List.of("대만", "카노"));
 
         // when
-        Pairs pairs1 = new Pairs(List.of(pair1, pair2));
-        Pairs pairs2 = new Pairs(List.of(pair3, pair4));
+        Pairs pairs1 = new Pairs(List.of(pair1, pair2), information);
+        Pairs pairs2 = new Pairs(List.of(pair3, pair4), information);
 
         boolean result = pairs1.hasSamePair(pairs2);
 
@@ -42,8 +44,8 @@ class PairsTest {
         Pair pair4 = TestUtils.getPair(List.of("대만", "카노"));
 
         // when
-        Pairs pairs1 = new Pairs(List.of(pair1, pair2));
-        Pairs pairs2 = new Pairs(List.of(pair3, pair4));
+        Pairs pairs1 = new Pairs(List.of(pair1, pair2), information);
+        Pairs pairs2 = new Pairs(List.of(pair3, pair4), information);
 
         boolean result = pairs1.hasSamePair(pairs2);
 

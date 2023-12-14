@@ -29,4 +29,9 @@ public enum Level {
                 .findAny()
                 .orElseThrow(() -> new IllegalArgumentException(ErrorMessage.INVALID_LEVEL.getMessage()));
     }
+
+    public static Mission findMissionByString(String lv, String name) {
+        Level level = findLevelByString(lv);
+        return level.missions.findMissionByName(name);
+    }
 }

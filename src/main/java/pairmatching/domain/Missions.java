@@ -3,6 +3,7 @@ package pairmatching.domain;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
+import pairmatching.constants.ErrorMessage;
 
 public class Missions {
 
@@ -20,5 +21,12 @@ public class Missions {
 
     public static Missions emptyMissions() {
         return new Missions(Collections.emptyList());
+    }
+
+    public Mission findMissionByName(String name) {
+        return missions.stream()
+                .filter(mission -> name.equals(mission.name()))
+                .findAny()
+                .orElseThrow(ErrorMessage.INVALID_MISSION.getMessage());
     }
 }

@@ -5,9 +5,11 @@ import java.util.List;
 public class Pairs {
 
     private final List<Pair> pairs;
+    private final PairsInformation information;
 
-    public Pairs(List<Pair> pairs) {
+    public Pairs(List<Pair> pairs, PairsInformation information) {
         this.pairs = pairs;
+        this.information = information;
     }
 
     public boolean hasSamePair(Pairs others) {
@@ -19,5 +21,9 @@ public class Pairs {
             }
         }
         return false;
+    }
+
+    public boolean hasSameInformation(PairsInformation information) {
+        return information.equals(this.information);
     }
 }
