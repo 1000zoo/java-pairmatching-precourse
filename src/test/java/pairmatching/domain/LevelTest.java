@@ -15,7 +15,7 @@ class LevelTest {
         String origin = "레벨1";
         Level answer = Level.LEVEL1;
         // when
-        Level result = Level.findByString(origin);
+        Level result = Level.findLevelByString(origin);
 
         // then
         assertThat(result).isEqualTo(answer);
@@ -28,7 +28,7 @@ class LevelTest {
 
         assertThrows(
                 IllegalArgumentException.class,
-                () -> Level.findByString("레벨0")
+                () -> Level.findLevelByString("레벨0")
         );
 
     }

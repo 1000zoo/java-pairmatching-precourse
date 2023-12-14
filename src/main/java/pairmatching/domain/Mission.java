@@ -1,5 +1,5 @@
 package pairmatching.domain;
 
-public record Mission(String name, Level level) {
+public record Mission(String name) {
 
 }
