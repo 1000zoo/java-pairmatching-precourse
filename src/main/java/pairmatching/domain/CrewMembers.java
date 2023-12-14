@@ -1,7 +1,6 @@
 package pairmatching.domain;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class CrewMembers {
@@ -24,8 +23,8 @@ public class CrewMembers {
         return new CrewMembers(members, course);
     }
 
-    public List<Crew> getMembers() {
-        return Collections.unmodifiableList(members);
+    public List<String> getMemberNames() {
+        return members.stream().map(Crew::name).toList();
     }
 
     public Course getCourse() {
