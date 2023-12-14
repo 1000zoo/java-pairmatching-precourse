@@ -70,7 +70,7 @@ public class PairMatching {
         for (String name : names) {
             members.add(new Crew(name, course));
             if (members.size() == 2) {
-                pairList.add(new Pair(members));
+                pairList.add(new Pair(new ArrayList<>(members)));
                 members.clear();
             }
         }
@@ -85,7 +85,7 @@ public class PairMatching {
         for (int i = 0; i < names.size() - 3; i++) {
             members.add(new Crew(names.get(i), course));
             if (members.size() == 2) {
-                pairList.add(new Pair(members));
+                pairList.add(new Pair(new ArrayList<>(members)));
                 members.clear();
             }
         }
@@ -93,7 +93,7 @@ public class PairMatching {
         for (int i = names.size() - 3; i < names.size(); i++) {
             members.add(new Crew(names.get(i), course));
         }
-        pairList.add(new Pair(members));
+        pairList.add(new Pair(new ArrayList<>(members)));
         return pairList;
     }
 

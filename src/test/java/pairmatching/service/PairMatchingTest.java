@@ -15,14 +15,14 @@ class PairMatchingTest {
     private CrewMembers crewMembers;
     private final PairMatching pairMatching = new PairMatching();
     private final PairsInformation information = new PairsInformation(
-            Course.BACKEND, Level.LEVEL1, Level.findMissionByString("레벨1", "로또")
+            Course.FRONTEND, Level.LEVEL1, Level.findMissionByString("레벨1", "로또")
     );
 
     @BeforeEach
     private void setUp() {
         CrewRepository repository = new CrewRepository();
         repository.init();
-        crewMembers = repository.findCrewMembersByCourseName("백엔드");
+        crewMembers = repository.findCrewMembersByCourseName("프론트엔드");
     }
 
     @Test
